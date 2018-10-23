@@ -6,6 +6,8 @@ description: >-
 
 # Introduction to GraphQL
 
+![](../.gitbook/assets/graphql-image.png)
+
 ## History
 
  GraphQL was developed internally by Facebook in 2012 before being publicly released in 2015 \(open-sourced\).
