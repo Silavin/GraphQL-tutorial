@@ -12,7 +12,7 @@ type Subscription { ... } //For notification if a mutation takes place
 
 ## Structure
 
-The structure shares a huge level of similarities with JSON. Here is how you declare:
+The structure shares a huge level of similarities with JSON. GraphQL created it's own Schema Definition Language \(SDL\) and here is how it looks:
 
 ```text
 type Query {
@@ -38,4 +38,20 @@ type Post {
   author: Person!
 }
 ```
+
+Notice that there are some difference to your usual JSON format? let's go over them in detail.
+
+> type - a declarative statement
+
+> !  - to state that the field is required.
+
+> \[ XXX \] - to state that this field contains another data structure.
+
+> \(XXX: Type\) - parameters to input data into the payload \(body\)
+
+
+
+
+
+
 
