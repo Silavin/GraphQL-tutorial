@@ -10,8 +10,6 @@ Up above, the end point would be the final path called 'single-end-point'. For R
 
 ## Benefits
 
-Having a single end point means that the all request are passing through one point. Here is a glimpse of the difference between REST and GraphQL
-
 ### Efficient Data Fetching
 
 ![](../.gitbook/assets/viwd5i5.png)
@@ -43,10 +41,33 @@ GraphiQL is an interface to test your queries. Think of it as an inbuilt Insomni
 
 The greatest benefit of GraphiQL is the ability to test your Query and Mutation on the client side. This means that you do not need to go into the server and console.log out the values.
 
-Better yet, the Query or Mutation that is being used in GraphiQL can be copy, pasted into your server and used. \(More information in **How to GraphiQL**\)  
-
+Better yet, the Query or Mutation that is being used in GraphiQL can be copy, pasted into your server and used. \(More information in **How to GraphiQL**\)
 
 ### GraphQL Schema Definition Language \(SDL\)
+
+GraphQL uses a strong type system to define the capabilities of an API. All the types that are exposed in an API are written down in a _schema_ using the GraphQL Schema Definition Language \(SDL\). This schema serves as the contract between the client and the server to define how a client can access the data.
+
+Once the schema is defined, the teams working on frontend and backends can do their work without further communication since they both are aware of the definite structure of the data that’s sent over the network.
+
+Frontend teams can easily test their applications by mocking the required data structures. Once the server is ready, the switch can be flipped for the client apps to load the data from the actual API.
+
+
+
+### Insightful Analytics on the Backend
+
+GraphQL allows you to have fine-grained insights about the data that’s requested on the backend. As each client specifies exactly what information it’s interested in, it is possible to gain a deep understanding of how the available data is being used. This can for example help in evolving an API and deprecating specific fields that are not requested by any clients any more.
+
+With GraphQL, you can also do low-level performance monitoring of the requests that are processed by your server. GraphQL uses the concept of **resolver functions** to collect the data that’s requested by a client. Instrumenting and measuring performance of these resolvers provides crucial insights about bottlenecks in your system. \(More about this on
+
+> Do note that resolver functions acts in a similar way to a Route Handler. In case you are unaware of what is a Route handler, here is an example from express:
+
+```text
+app.get('/', function (req, res) {
+  res.send('GET request to the homepage')
+})
+```
+
+> The function up above is an example of a route handler.
 
 
 
