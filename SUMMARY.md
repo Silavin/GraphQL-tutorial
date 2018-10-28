@@ -7,6 +7,6 @@
 * [Introduction to GraphQL](graphql/introduction-to-graphql.md)
 * [Single End Point](graphql/untitled.md)
 * [Schema](graphql/schema.md)
-* [Getting Started](graphql/untitled-1.md)
+* [Setup](graphql/untitled-1.md)
 * [Resolver Functions](graphql/resolver-functions.md)
 
