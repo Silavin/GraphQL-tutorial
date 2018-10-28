@@ -49,7 +49,7 @@ GraphQL uses a strong type system to define the capabilities of an API. All the 
 
 Once the schema is defined, the teams working on frontend and backends can do their work without further communication since they both are aware of the definite structure of the data that’s sent over the network.
 
-Frontend teams can easily test their applications by mocking the required data structures. Once the server is ready, the switch can be flipped for the client apps to load the data from the actual API. \(More about this topic in Schema\)
+Frontend teams can easily test their applications by mocking the required data structures. Once the server is ready, the switch can be flipped for the client apps to load the data from the actual API. \(More about this topic in **Schema**\)
 
 
 
@@ -57,7 +57,7 @@ Frontend teams can easily test their applications by mocking the required data s
 
 GraphQL allows you to have fine-grained insights about the data that’s requested on the backend. As each client specifies exactly what information it’s interested in, it is possible to gain a deep understanding of how the available data is being used. This can for example help in evolving an API and deprecating specific fields that are not requested by any clients any more.
 
-With GraphQL, you can also do low-level performance monitoring of the requests that are processed by your server. GraphQL uses the concept of **resolver functions** to collect the data that’s requested by a client. Instrumenting and measuring performance of these resolvers provides crucial insights about bottlenecks in your system. \(More about this on Resolver Functions\)
+With GraphQL, you can also do low-level performance monitoring of the requests that are processed by your server. GraphQL uses the concept of **resolver functions** to collect the data that’s requested by a client. Instrumenting and measuring performance of these resolvers provides crucial insights about bottlenecks in your system. \(More about this on **Resolver Functions**\)
 
 > Do note that resolver functions acts in a similar way to a Route Handler. In case you are unaware of what is a Route handler, here is an example from express:
 
