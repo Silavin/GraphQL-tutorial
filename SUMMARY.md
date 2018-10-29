@@ -10,4 +10,5 @@
 * [Schema](graphql/schema.md)
 * [Resolver Functions](graphql/resolver-functions.md)
 * [Setup](graphql/untitled-1.md)
+* [Querying and Mutations](graphql/querying-and-mutations.md)
 
