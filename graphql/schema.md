@@ -14,29 +14,31 @@ type Subscription { ... } //For notification if a mutation takes place
 
 The structure shares a huge level of similarities with JSON. GraphQL created it's own Schema Definition Language \(SDL\) and here is how it looks:
 
-```text
-type Query {
-  allPersons(last: Int): [Person!]!
-}
+```javascript
+const AuthorType = new GraphQLObjectType({
+  name: 'Author',
+  fields: () => ({
+    name: {
+      type: GraphQLString,
+      resolve: xml =>
+        xml.GoodreadsResponse.author[0].name[0]
+    },
+    books: {
+      type: new GraphQLList(BookType),
+      resolve: xml => {
+        const ids = xml.GoodreadsResponse.author[0].books[0].book.map(elem => elem.id[0]._)
+        console.log('fetching bookkks!')
+        return Promise.all(ids.map(id =>
+          fetch(`https://www.goodreads.com/book/show/${id}.xml?key=42tmzmwXfJJzHcbXlBRg`)
+            .then(response => response.text())
+            .then(parseXML)
+        ))
+      }
 
-type Mutation {
-  createPerson(name: String!, age: Int!): Person!
-}
+    }
+  })
+})
 
-type Subscription {
-  newPerson: Person!
-}
-
-type Person {
-  name: String!
-  age: Int!
-  posts: [Post!]!
-}
-
-type Post {
-  title: String!
-  author: Person!
-}
 ```
 
 Notice that there are some difference to your usual JSON format? let's go over them in detail.

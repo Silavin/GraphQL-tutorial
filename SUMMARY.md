@@ -9,4 +9,5 @@
 * [Setup](graphql/untitled-1.md)
 * [Schema](graphql/schema.md)
 * [Resolver Functions](graphql/resolver-functions.md)
+* [Overview](graphql/overview.md)
 
