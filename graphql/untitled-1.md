@@ -10,18 +10,23 @@ After installation, you can make a folder structure like so:
 
 ```text
 - app.js
-- src/
-   |__ graphql/
-          |
-          |__ schema.js
-          |
-          |__ product/
-          |       |__ schema.js
-          |       |__ resolver.js
-          |
-          |__ variant/
-                  |__ schema.js
-                  |__ resolver.js
+- graphql/
+     |
+     |__ index.js
+     |
+     |__ mutation/
+     |       |__ index.js
+     |       |__ post.js
+     |       |__ user.js
+     |
+     |__ queries/
+     |       |__ index.js
+     |       |__ user.js
+     |
+     |__ types/      
+             |__ index.js
+             |__ post.js
+             |__ user.js
 
 - index.js
 - server.js
@@ -41,45 +46,38 @@ const express = require('express')
 const graphqlHTTP = require('express-graphql')
 const app = express()
 
-const schema = require('./src/graphql/schema')
+const schema = require('./graphql')
 
 app.use('/graphql', graphqlHTTP({
   schema,
   graphiql: true
 }))
 
-app.listen(4000)
-console.log('Listening ...')
+app.listen(3000, () => {
+  console.log("GraphQL server running at port 3000...");
+});
 ```
 
 
 
-Under **src/graphql/schema.js:**
+Under **graphql/index.js:**
 
 Do note that this is an example of how a single source Schema is structured. There are more ways to structure your Schema but this is the method I prefer.
 
 ```javascript
-const { GraphQLSchema, GraphQLObjectType } = require("graphql");
-const product = require("./product/schema.js")
-const variant = require("./variant/schema.js")
+import mutations from './mutations';
+import queries from './queries';
 
-module.exports = new GraphQLSchema({
-    query: new GraphQLObjectType({
-        name: "Query",
-        fields: {
-            product: product.graphql.query,
-            variant: variant.graphql.query
-        }
-    }),
-    
-    mutation: new GraphQLObjectType({
-        name: "Mutation",
-        fields: {
-            product: product.graphql.mutation,
-            variant: variant.graphql.mutation
-        }
-    })
-})
+export default new GraphQLSchema({
+	query: new GraphQLObjectType({
+		name: 'Query',
+		fields: queries
+	}),
+	mutation: new GraphQLObjectType({
+		name: 'Mutation',
+		fields: mutations
+	})
+});
 ```
 
 

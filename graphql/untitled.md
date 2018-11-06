@@ -31,7 +31,7 @@ Now, imagine that you will need to change a certain request on the front-end.
 * **If the structure of this request is left unchanged**, it will face an issue of Overfetching or Underfetching. 
 * **If the structure of this request was changed**,, you would most likely have to go into the server side to modify the request call. 
 
-However, with GraphQL, you can change the request directly in the client side. \(Explained more in detail in **Actions**\)
+However, with GraphQL, you can change the request directly in the client side. \(Explained more in detail in **Querying and Mutations**\)
 
 ### GraphiQL
 
@@ -41,7 +41,7 @@ GraphiQL is an interface to test your queries. Think of it as an inbuilt Insomni
 
 The greatest benefit of GraphiQL is the ability to test your Query and Mutation on the client side. This means that you do not need to go into the server and console.log out the values.
 
-Better yet, the Query or Mutation that is being used in GraphiQL can be copy, pasted into your server and used. \(More information in **How to GraphiQL**\)
+Better yet, the Query or Mutation that is being used in GraphiQL can be copy, pasted into your server and used. 
 
 ### GraphQL Schema Definition Language \(SDL\)
 
